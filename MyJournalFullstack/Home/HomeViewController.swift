@@ -59,18 +59,12 @@ class HomeViewController: UITableViewController, HomeViewDelegate {
         if editingStyle == .delete {
             print("Delete Post")
             let post = self.posts[indexPath.row]
-            AppServices.shared.deletePost(id: post.id) { err in
-                if let err = err {
-                    print("Failed to Delete", err)
-                    return
-                }
-                
+            presenter?.deletePost(post: post)
                 print("Successfully deleted post from server")
                 self.posts.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

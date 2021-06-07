@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
-    var router: HomeRouterDelegate? { get set }
-    var view: HomeViewDelegate? { get set }
+    
     
     func fetchPosts()
     func handleCreatePost()
+    func deletePost(post: HomeModel)
 }
 
 class HomePresenter: HomePresenterDelegate {
@@ -41,6 +41,15 @@ class HomePresenter: HomePresenterDelegate {
             }
             
             print("Finished creating post")
+        }
+    }
+    
+    func deletePost(post: HomeModel) {
+        AppServices.shared.deletePost(id: post.id) { err in
+            if let err = err {
+                print("Failed to Delete", err)
+                return
+            }
         }
     }
     
