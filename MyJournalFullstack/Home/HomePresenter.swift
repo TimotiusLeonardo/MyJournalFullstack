@@ -10,7 +10,6 @@ import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
     
-    
     func fetchPosts()
     func handleCreatePost()
     func deletePost(post: HomeModel)

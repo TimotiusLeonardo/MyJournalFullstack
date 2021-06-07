@@ -11,7 +11,6 @@ import UIKit
 typealias HomeEntryPoint = HomeViewController
 
 protocol HomeRouterDelegate {
-    var entry: HomeEntryPoint? { get }
     
     static func start() -> HomeRouterDelegate
 }

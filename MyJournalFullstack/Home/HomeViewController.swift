@@ -8,7 +8,6 @@
 import UIKit
 
 protocol HomeViewDelegate {
-    var presenter: HomePresenterDelegate? { get set }
     
     func reloadPostsData(data: [HomeModel])
 }
