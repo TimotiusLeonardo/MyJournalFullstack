@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import MyJournalFullstack
 
 class MyJournalFullstackTests: XCTestCase {
 

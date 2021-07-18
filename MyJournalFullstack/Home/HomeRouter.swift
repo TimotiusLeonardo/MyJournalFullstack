@@ -12,13 +12,12 @@ typealias HomeEntryPoint = HomeViewController
 
 protocol HomeRouterDelegate {
     
-    static func start() -> HomeRouterDelegate
+    static func start() -> UIViewController
 }
 
 class HomeRouter: HomeRouterDelegate {
-    var entry: HomeEntryPoint?
     
-    static func start() -> HomeRouterDelegate {
+    static func start() -> UIViewController {
         let router = HomeRouter()
         
         let view = HomeViewController()
@@ -28,9 +27,7 @@ class HomeRouter: HomeRouterDelegate {
         presenter.router = router
         presenter.view = view
         
-        router.entry = view as HomeEntryPoint
-        
-        return router
+        return view
     }
     
     
